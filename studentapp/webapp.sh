@@ -126,4 +126,17 @@ systemctl enable tomcat &>>$LOG
 systemctl restart tomcat &>>$LOG
 STAT_CHECK $?
 
+Head "DATABASE SERVER SETUP"
+Print "Install MariaDB Server"
+yum install mariadb-server -y &>>$LOG
+STAT_CHECK $?
 
+Pint "Start MariaDB Service\t"
+systemctl enable mariadb &>>$LOG
+systemctl start mariadb &>>$LOG
+STAT_CHECK $?
+
+Print "Load Schema\t\t"
+curl -s https://s3-us-west-2.amazonaws.com/studentapi-cit/studentapp-ui-proj1.sql -O /tmp/studentapp.sql
+mysql <?tmp/schema.sql
+STAT_CHECK $?
