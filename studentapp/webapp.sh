@@ -107,7 +107,7 @@ STAT_CHECK $?
 
 Print "Update JDBC Parameters"
 cd $TOMCAT_HOME 
-sed -i -e '/TestDB/ d' -e '$ i <Resource name="jdbc/TestDB" auth="Container" type="javax.sql.DataSource" maxTotal="100" maxIdle="30" maxWaitMillis="10000" username="admin" password="admin123" driverClassName="com.mysql.jdbc.Driver" url="jdbc:mysql://database-1.canezjyjgu1i.us-east-1.rds.amazonaws.com:3306/studentapp"/>' conf/context.xml 
+sed -i -e '/TestDB/ d' -e '$ i <Resource name="jdbc/TestDB" auth="Container" type="javax.sql.DataSource" maxTotal="100" maxIdle="30" maxWaitMillis="10000" username="admin" password="admin321" driverClassName="com.mysql.jdbc.Driver" url="jdbc:mysql://database-1.canezjyjgu1i.us-east-1.rds.amazonaws.com:3306/studentapp"/>' conf/context.xml 
 STAT_CHECK $? 
 
 chown $FUSERNAME:$FUSERNAME /home/$FUSERNAME -R 
